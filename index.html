@@ -12,6 +12,10 @@
           <span> {{count()}}  Completed</span>
       </div>
       <div class="middle">
+
+        <span ng-if="todos.length === 0">
+          Your todo's list is empty
+        </span>
           <ul class="unstyled" >
               <li ng-repeat="todo in todos">
                 <label class="checkbox">
@@ -21,7 +25,6 @@
                 <button class="removeButton" type="button" ng-click="remove(todo.name)">Remove</button>
               </li>
             </ul>
-
             <form ng-submit="add">
                 <input class="input" type="text" ng-model="todoText" size="30"
                 placeholder="add new todo here">
