@@ -6,11 +6,15 @@ angular.module('todoApp', [])
     ];
 
     function add () {
-      $scope.todos.push({
-        name: $scope.todoText,
-        done: false
-      });
-      $scope.todoText = '';
+      if ($scope.todoText === '' || $scope.todoText === ' ') {
+        window.alert('Error: The todo is empty, please write something');
+      } else {
+        $scope.todos.push({
+          name: $scope.todoText,
+          done: false
+       });
+        $scope.todoText = '';
+      }
     }
     $scope.add = add;
 
