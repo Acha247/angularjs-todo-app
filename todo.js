@@ -1,7 +1,7 @@
 angular.module('todoApp', [])
   .controller('TodoListController', function($scope) {
     $scope.todos =[
-    {name:'learn AngularJS', done:true},
+    {name:'learn AngularJS', done:false},
     {name:'build an AngularJS app', done:false}
     ];
 
@@ -25,4 +25,17 @@ angular.module('todoApp', [])
       $scope.todos = provisionalTodoArray;
     }
     $scope.remove = remove;
+    
+    $scope.completed = 0;
+
+    function count () {
+      var count = 0;
+      for (var index = 0; index < $scope.todos.length; index++) {
+        if ($scope.todos[index].done) {
+          count = count + 1;
+        }
+      }
+      return count;
+    }
+    $scope.count = count;
   })
