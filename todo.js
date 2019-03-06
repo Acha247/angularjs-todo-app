@@ -21,6 +21,9 @@ angular.module('todoApp', [])
     $scope.add = add;
 
     function remove(todoRemove) {
+      var removeText = 'Do you want to remove ' + todoRemove + '?';
+      var confirmation = window.confirm(removeText);
+      if (confirmation) {
       console.log(todoRemove)
       var provisionalTodoArray = [];
       for (var index = 0; index < $scope.todos.length; index++) {
@@ -30,6 +33,7 @@ angular.module('todoApp', [])
       }
       $scope.todos = provisionalTodoArray;
     }
+   }
     $scope.remove = remove;
     
     $scope.completed = 0;
