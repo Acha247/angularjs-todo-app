@@ -3,20 +3,24 @@
 <head>
   <script src="node_modules/angular/angular.min.js"></script>
   <script type="text/javascript" src="todo.js"></script>
+  <link rel="stylesheet" href="todo.css">
 </head>
 <body>
   <h1>Wellcome to AngularJS todo list</h1>
-    <div ng-controller="TodoListController">
+    <div ng-controller="TodoListController" class="container">
       <ul>
         <li ng-repeat="todo in todos">
-          {{todo.name}}
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}" class="done-{{todo.done}}">{{todo.name}}</span>
+          </label>
         </li>
       </ul>
 
       <form ng-submit="add">
-          <input type="text" ng-model="todoText" size="30"
+          <input class="input" type="text" ng-model="todoText" size="30"
           placeholder="add new todo here">
-          <input class="btn-primary" type="submit" value="add" ng-click="add()">
+          <input class="btn btn-primary" type="button" value="add" ng-click="add()">
       </form>
     </div>
 </body>
