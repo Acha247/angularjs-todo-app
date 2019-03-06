@@ -5,8 +5,10 @@ angular.module('todoApp', [])
     {name:'build an AngularJS app', done:false}
     ];
 
+    $scope.todoText = '';
+
     function add () {
-      if ($scope.todoText === '' || $scope.todoText === ' ') {
+      if ($scope.todoText.length === 0 || $scope.todoText === ' ') {
         window.alert('Error: The todo is empty, please write something');
       } else {
         $scope.todos.push({
