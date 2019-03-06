@@ -4,13 +4,15 @@
   "description": "Angular todo application.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "http-server": "node node_modules/.bin/http-server"
   },
   "author": "Oussama Alouat",
   "license": "MIT",
   "dependencies": {
     "angular": "^1.7.7",
     "eslint-plugin-chai-expect": "^2.0.1",
-    "g": "^2.0.1"
+    "g": "^2.0.1",
+    "http-server": "^0.11.1"
   }
 }
