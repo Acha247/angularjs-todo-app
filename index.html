@@ -11,20 +11,23 @@
       <div class="counter">
           <span> {{count()}}  Completed</span>
       </div>
-    <ul class="unstyled">
-      <li ng-repeat="todo in todos">
-        <label class="checkbox">
-          <input type="checkbox" ng-model="todo.done">
-          <span class="done-{{todo.done}}" class="done-{{todo.done}}">{{todo.name}}</span>
-        </label>
-        <button type="button" ng-click="remove(todo.name)">Remove</button>
-      </li>
-    </ul>
-    <form ng-submit="add">
-        <input class="input" type="text" ng-model="todoText" size="30"
-        placeholder="add new todo here">
-        <input class="btn btn-primary" type="button" value="add" ng-click="add()">
-    </form>
+      <div class="middle">
+          <ul class="unstyled" >
+              <li ng-repeat="todo in todos">
+                <label class="checkbox">
+                  <input type="checkbox" ng-model="todo.done">
+                  <span class="done-{{todo.done}}" class="done-{{todo.done}}">{{todo.name}}</span>
+                </label>
+                <button class="removeButton" type="button" ng-click="remove(todo.name)">Remove</button>
+              </li>
+            </ul>
+
+            <form ng-submit="add">
+                <input class="input" type="text" ng-model="todoText" size="30"
+                placeholder="add new todo here">
+                <button class="addButton" type="button" ng-click="add()"> Add </button>
+            </form>
+      </div>
   </div>
 </body>
 </html>
