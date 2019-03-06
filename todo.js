@@ -1,7 +1,16 @@
 angular.module('todoApp', [])
   .controller('TodoListController', function($scope) {
     $scope.todos =[
-    {text:'learn AngularJS', done:true},
-    {text:'build an AngularJS app', done:false}
+    {name:'learn AngularJS', done:true},
+    {name:'build an AngularJS app', done:false}
     ];
+
+    function add () {
+      $scope.todos.push({
+        name: $scope.todoText,
+        done: false
+      });
+      $scope.todoText = '';
+    }
+    $scope.add = add;
   })
