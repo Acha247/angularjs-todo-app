@@ -1,10 +1,6 @@
 angular.module('todoApp', [])
   .controller('TodoListController', function($scope) {
-    $scope.todos =[
-    {name:'learn AngularJS', done:false},
-    {name:'build an AngularJS app', done:false}
-    ];
-
+    $scope.todos =[];
     $scope.todoText = '';
 
     function add () {
@@ -35,8 +31,6 @@ angular.module('todoApp', [])
     }
    }
     $scope.remove = remove;
-    
-    $scope.completed = 0;
 
     function count () {
       var count = 0;
@@ -48,4 +42,9 @@ angular.module('todoApp', [])
       return count;
     }
     $scope.count = count;
+
+    function getTotal () {
+      return $scope.todos.length;
+    }
+    $scope.getTotal = getTotal;
   })
