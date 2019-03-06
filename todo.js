@@ -31,8 +31,6 @@ angular.module('todoApp', [])
     }
    }
     $scope.remove = remove;
-    
-    $scope.completed = 0;
 
     function count () {
       var count = 0;
@@ -44,4 +42,9 @@ angular.module('todoApp', [])
       return count;
     }
     $scope.count = count;
+
+    function getTotal () {
+      return $scope.todos.length;
+    }
+    $scope.getTotal = getTotal;
   })
