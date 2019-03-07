@@ -8,29 +8,40 @@
 <body>
   <h1>Wellcome to AngularJS todo list</h1>
   <div ng-controller="TodoListController" class="container">
-      <div class="counter">
-          <span> {{count()}}  Completed of {{getTotal()}}</span>
-      </div>
-      <div class="middle">
-
-        <span ng-if="todos.length === 0">
+    <div class="counter">
+        <span> {{count()}} Activities  completed of {{getTotal()}}</span>
+    </div>
+    <div class="middle">
+      <span ng-if="todos.length === 0">
           Your todo's list is empty
         </span>
-          <ul class="unstyled" >
-              <li ng-repeat="todo in todos">
-                <label class="checkbox">
-                  <input type="checkbox" ng-model="todo.done">
-                  <span class="done-{{todo.done}}" class="done-{{todo.done}}">{{todo.name}}</span>
-                </label>
-                <button class="removeButton" type="button" ng-click="remove(todo.name)">Remove</button>
-              </li>
-            </ul>
-            <form ng-submit="add">
-                <input class="input" type="text" ng-model="todoText" size="30"
-                placeholder="add new todo here">
-                <button class="addButton" type="button" ng-click="add()"> Add </button>
-            </form>
-      </div>
+        <ul class="unstyled" >
+          <li ng-repeat="todo in todos">
+            <label class="checkbox">
+              <input type="checkbox" ng-model="todo.done">
+              <span class="done-{{todo.done}}">{{todo.name}}</span>
+            </label>
+            <button class="removeButton" type="button" ng-click="remove(todo.name)">Remove</button>
+            <button type="button" ng-click="archive(todo.name)">Archive</button>
+          </li>
+        </ul>
+        <form ng-submit="add">
+            <input class="input" type="text" ng-model="todoText" size="30"
+            placeholder="add new todo here">
+            <button class="addButton" type="button" ng-click="add()"> Add </button>
+        </form>
+      <br>
+      <h2>Archived Activities</h2>
+      <ul class="unstyled" >
+        <li ng-repeat="archive in archived">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{archive.done}}">{{archive.name}}</span>
+          </label>
+        </li>
+      </ul>
+    </div>
   </div>
+
 </body>
 </html>

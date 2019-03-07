@@ -2,6 +2,7 @@ angular.module('todoApp', [])
   .controller('TodoListController', function($scope) {
     $scope.todos =[];
     $scope.todoText = '';
+    $scope.archived = [];
 
     function add () {
       if ($scope.todoText.length === 0 || $scope.todoText === ' ') {
@@ -14,13 +15,13 @@ angular.module('todoApp', [])
         $scope.todoText = '';
       }
     }
+
     $scope.add = add;
 
     function remove(todoRemove) {
       var removeText = 'Do you want to remove ' + todoRemove + '?';
       var confirmation = window.confirm(removeText);
       if (confirmation) {
-      console.log(todoRemove)
       var provisionalTodoArray = [];
       for (var index = 0; index < $scope.todos.length; index++) {
         if ($scope.todos[index].name !== todoRemove) {
@@ -30,6 +31,7 @@ angular.module('todoApp', [])
       $scope.todos = provisionalTodoArray;
     }
    }
+
     $scope.remove = remove;
 
     function count () {
@@ -41,10 +43,27 @@ angular.module('todoApp', [])
       }
       return count;
     }
+
     $scope.count = count;
 
     function getTotal () {
       return $scope.todos.length;
     }
+
     $scope.getTotal = getTotal;
+
+    function archive (activity) {
+      console.log(activity)
+      var provisionalTodoArray = [];
+      for (var index = 0; index < $scope.todos.length; index++) {
+        if ($scope.todos[index].name !== activity) {
+          provisionalTodoArray.push($scope.todos[index]);
+        } else {
+          $scope.archived.push($scope.todos[index]);
+        }
+      }
+      $scope.todos = provisionalTodoArray;
+    }
+
+    $scope.archive = archive;
   })
