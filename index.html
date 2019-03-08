@@ -16,13 +16,13 @@
           Your todo's list is empty
         </span>
         <ul class="unstyled" >
-          <li ng-repeat="todo in todos">
+          <li ng-repeat="todo in todos" ng-if="!todo.archived">
             <label class="checkbox">
               <input type="checkbox" ng-model="todo.done">
               <span class="done-{{todo.done}}">{{todo.name}}</span>
             </label>
             <button class="removeButton" type="button" ng-click="remove(todo)">Remove</button>
-            <button type="button" ng-click="archive(todo.name)">Archive</button>
+            <button type="button" ng-click="archive(todo)">Archive</button>
           </li>
         </ul>
         <form ng-submit="add">
@@ -33,8 +33,8 @@
       <br>
       <h2>Archived Activities</h2>
       <ul class="unstyled" >
-        <li ng-repeat="archive in archived">
-          <label class="checkbox">
+        <li ng-repeat="archive in todos">
+          <label class="checkbox" ng-if="archive.archived">
             <input type="checkbox" ng-model="todo.done">
             <span class="done-{{archive.done}}">{{archive.name}}</span>
           </label>

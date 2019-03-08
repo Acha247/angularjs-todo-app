@@ -3,7 +3,6 @@ angular.module('todoApp', [])
     $scope.todos =[];
     $scope.todoText = '';
     $scope.archived = [];
-//Commit this tomorrow at the train
     function generateUUID() {
       var d = new Date().getTime();
       if (typeof performance !== 'undefined' && typeof performance.now === 'function'){
@@ -14,7 +13,7 @@ angular.module('todoApp', [])
           d = Math.floor(d / 16);
           return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
       });
-  }
+    }
 
     function add () {
       if ($scope.todoText.length === 0 || $scope.todoText === ' ') {
@@ -23,7 +22,8 @@ angular.module('todoApp', [])
         $scope.todos.push({
           name: $scope.todoText,
           done: false,
-          uuid: generateUUID()
+          uuid: generateUUID(),
+          archived: false
        });
         $scope.todoText = '';
         console.log( $scope.todos)
@@ -63,16 +63,12 @@ angular.module('todoApp', [])
     $scope.getTotal = getTotal;
 
     function archive (activity) {
-      console.log(activity)
-      var provisionalTodoArray = [];
-      for (var index = 0; index < $scope.todos.length; index++) {
-        if ($scope.todos[index].name !== activity) {
-          provisionalTodoArray.push($scope.todos[index]);
-        } else {
-          $scope.archived.push($scope.todos[index]);
+      $scope.todos = $scope.todos.map(function(val) {
+        if (val.uuid === activity.uuid) {
+          val.archived = true;
         }
-      }
-      $scope.todos = provisionalTodoArray;
+        return val;
+      });
     }
 
     $scope.archive = archive;
