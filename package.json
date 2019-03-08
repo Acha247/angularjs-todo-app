@@ -1,6 +1,6 @@
 {
   "name": "angular-todo-app",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Angular todo application.",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,7 @@
     "bootstrap": "^4.3.1",
     "eslint-plugin-chai-expect": "^2.0.1",
     "g": "^2.0.1",
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.1",
+    "uuid": "^3.3.2"
   }
 }
