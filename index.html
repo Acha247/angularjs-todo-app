@@ -21,7 +21,7 @@
               <input type="checkbox" ng-model="todo.done">
               <span class="done-{{todo.done}}">{{todo.name}}</span>
             </label>
-            <button class="removeButton" type="button" ng-click="remove(todo.name)">Remove</button>
+            <button class="removeButton" type="button" ng-click="remove(todo)">Remove</button>
             <button type="button" ng-click="archive(todo.name)">Archive</button>
           </li>
         </ul>
