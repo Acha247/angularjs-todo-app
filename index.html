@@ -3,7 +3,10 @@
 <head>
   <script src="/scripts/angular.js"></script>
   <script type="text/javascript" src="todo.js"></script>
+  <script type="text/javascript" src="/scripts/bootstrap/js/bootstrap.js"></script>
   <link rel="stylesheet" href="todo.css">
+  <link rel="stylesheet" href="/scripts/bootstrap/css/bootstrap.css">
+
 </head>
 <body>
   <h1>Wellcome to AngularJS todo list</h1>
@@ -21,7 +24,7 @@
               <input type="checkbox" ng-model="todo.done">
               <span class="done-{{todo.done}}">{{todo.name}}</span>
             </label>
-            <button class="removeButton borderRadiusButton" type="button" ng-click="remove(todo)">Remove</button>
+            <button  class="btn btn-primary" type="button" ng-click="remove(todo)">Remove</button>
             <button class="borderRadiusButton" type="button" ng-click="archive(todo)">Archive</button>
           </li>
         </ul>
