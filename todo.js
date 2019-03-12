@@ -72,4 +72,15 @@ angular.module('todoApp', [])
     }
 
     $scope.archive = archive;
+
+    function unarchive(activity) {
+      $scope.todos = $scope.todos.map(function(val) {
+        if (val.uuid === activity.uuid) {
+          val.archived = false;
+        }
+        return val;
+      });
+    }
+
+    $scope.unarchive = unarchive;
   })

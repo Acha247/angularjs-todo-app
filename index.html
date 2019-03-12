@@ -35,9 +35,9 @@
       <ul class="unstyled" >
         <li ng-repeat="archive in todos">
           <label class="checkbox" ng-if="archive.archived">
-            <input type="checkbox" ng-model="todo.done">
             <span class="done-{{archive.done}}">{{archive.name}}</span>
           </label>
+          <button ng-if="archive.archived" type="button" ng-click="unarchive(archive)">Unarchive</button>
         </li>
       </ul>
     </div>
