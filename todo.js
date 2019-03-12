@@ -26,7 +26,6 @@ angular.module('todoApp', [])
           archived: false
        });
         $scope.todoText = '';
-        console.log( $scope.todos)
       }
     }
 
