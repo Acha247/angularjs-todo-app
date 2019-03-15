@@ -3,48 +3,56 @@
 <head>
   <script src="/scripts/angular.js"></script>
   <script type="text/javascript" src="todo.js"></script>
-  <script type="text/javascript" src="/scripts/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/scripts/bootstrap/js/bootstrap.js"></script>
+  <script type="text/javascript" src="/scripts/jQuery/jquery-3.2.1.slim.min.js"></script>
+  <script type="text/javascript" src="/scripts/popper/popper.min.js"></script>
+
   <link rel="stylesheet" href="todo.css">
-  <link rel="stylesheet" href="/scripts/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/scripts/bootstrap/css/bootstrap.css">
 
 </head>
 <body>
-  <h1>Wellcome to AngularJS todo list</h1>
+  <h1 class="text-align-center">Wellcome to AngularJS todo list</h1>
   <div ng-controller="TodoListController" class="container">
-    <div class="counter">
-        <span> {{count()}} Activities  completed of {{getTotal()}}</span>
-    </div>
-    <div class="middle">
-      <span ng-if="todos.length === 0">
+    
+    <div class="row">
+      <div class="col-6 active mt-1rem w-100 mh-15rem">
+        <h4>Active Activities</h4>
+        <span ng-if="todos.length === 0">
           Your todo's list is empty
         </span>
-        <ul class="unstyled" >
-          <li ng-repeat="todo in todos" ng-if="!todo.archived">
+        <div ng-repeat="todo in todos" ng-if="!todo.archived">
+          <div class="mt-05rem">
             <label class="checkbox">
               <input type="checkbox" ng-model="todo.done">
               <span class="done-{{todo.done}}">{{todo.name}}</span>
             </label>
-            <button  class="btn btn-primary" type="button" ng-click="remove(todo)">Remove</button>
-            <button class="borderRadiusButton" type="button" ng-click="archive(todo)">Archive</button>
-          </li>
-        </ul>
-        <form ng-submit="add">
-            <input class="input" type="text" ng-model="todoText" size="30"
-            placeholder="add new todo here">
-            <button class="addButton borderRadiusButton" type="button" ng-click="add()"> Add </button>
-        </form>
-      <br>
-      <h2>Archived Activities</h2>
-      <ul class="unstyled" >
-        <li ng-repeat="archive in todos">
+            <button  class="btn btn-danger br-1rem btn-sm" ng-click="remove(todo)">Remove</button>
+            <button class="btn btn-info br-1rem btn-sm" ng-click="archive(todo)">Archive</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 archive mt-1rem w-100 mh-15rem">
+        <h4>Archived Activities</h4>
+        <div ng-repeat="archive in todos">
           <label class="checkbox" ng-if="archive.archived">
             <span class="done-{{archive.done}}">{{archive.name}}</span>
           </label>
-          <button  class ="borderRadiusButton" ng-if="archive.archived" type="button" ng-click="unarchive(archive)">Unarchive</button>
-        </li>
-      </ul>
+          <button  class ="btn btn-info br-1rem btn-sm" ng-if="archive.archived" type="button" ng-click="unarchive(archive)">Unarchive</button>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align: center;">
+      <div class="col mt-05rem">
+        <form ng-submit="add">
+          <input class="input" type="text" ng-model="todoText" size="30"
+          placeholder="add new todo here">
+          <button class="btn btn-primary br-1rem btn-sm"  ng-click="add()"> Add </button>
+        </form>
+      </div>
     </div>
   </div>
-
 </body>
 </html>
