@@ -1,20 +1,49 @@
+.mt-1rem {
+  margin-top: 1rem;
+}
+
+button.br-1rem {
+  border-radius: 2rem 2rem 2rem 2rem !important;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.mh-15rem {
+  min-height: 15rem;
+}
+
+.ml-05rem {
+  margin-left: 0.5rem;
+}
+
+.mr-05rem {
+  margin-right: 0.5rem;
+}
+
+.active {
+  text-align: center;
+  background-color: rgba(155, 155, 155, 0.5);
+}
+
+.archive{
+  text-align: center;
+  background-color: rgba(155, 155, 255, 0.5);
+}
+
 .done-true {
   text-decoration: line-through;
   color: grey;
 }
 
+
+
 .container {
   width: 100%;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  flex-direction: column;
-  flex-flow: row wrap;
+  height: 100%;
 }
 
-.unstyled {
-  list-style-type: none;
-}
 
 .counter{
   margin-top: 1%;
@@ -26,15 +55,7 @@
   text-align: center;
 }
 
-.middle{
-  margin-top: 1%;
-  text-align: center;
-  background-color: rgba(155, 155, 155, 0.5);
-  height: 10rem;
-  width: 100%;
-  padding: 1rem;
-  height: 100%;
-}
+
 
 .removeButton {
   background-color: rgb(255, 5, 5);
@@ -43,10 +64,12 @@
   background-color: rgb(72, 127, 245);
 }
 
-.borderRadiusButton {
-  border-radius: 1rem 1rem 1rem 1rem;
-}
+
 
 h1 {
   text-align: center;
+}
+
+.mt-05rem {
+  margin-top: 0.5rem;
 }
