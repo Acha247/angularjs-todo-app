@@ -3,11 +3,13 @@ angular.module('todoApp', [])
     $scope.todos =[];
     $scope.todoText = '';
     $scope.archived = [];
+
     function generateUUID() {
       var d = new Date().getTime();
       if (typeof performance !== 'undefined' && typeof performance.now === 'function'){
           d += performance.now(); //use high-precision timer if available
       }
+
       return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
           var r = (d + Math.random() * 16) % 16 | 0;
           d = Math.floor(d / 16);
@@ -26,7 +28,6 @@ angular.module('todoApp', [])
           archived: false
        });
         $scope.todoText = '';
-        console.log( $scope.todos)
       }
     }
 
@@ -51,6 +52,7 @@ angular.module('todoApp', [])
           count = count + 1;
         }
       }
+
       return count;
     }
 
@@ -67,9 +69,22 @@ angular.module('todoApp', [])
         if (val.uuid === activity.uuid) {
           val.archived = true;
         }
+
         return val;
       });
     }
 
     $scope.archive = archive;
+
+    function unarchive(activity) {
+      $scope.todos = $scope.todos.map(function(val) {
+        if (val.uuid === activity.uuid) {
+          val.archived = false;
+        }
+
+        return val;
+      });
+    }
+
+    $scope.unarchive = unarchive;
   })
