@@ -6,11 +6,12 @@ RUN npm install
 COPY . .
 RUN npm run build
 
-# Stage 2: Create the production image
-FROM node:14-alpine
-WORKDIR /app
+# Stage 2: serve app with nginx server
+FROM nginx:alpine
+COPY ./.nginx/nginx.conf /etc/nginx/nginx.conf
+## Remove default nginx index page
+RUN rm -rf /usr/share/nginx/html/*
 COPY --from=build /app/package.json /app/package-lock.json ./
-COPY --from=build /app/dist ./dist
-RUN npm install --only=production
-EXPOSE 3000
-CMD ["node", "dist/index.js"]
+COPY --from=build /app/dist /usr/share/nginx/html
+EXPOSE 3000 80
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
