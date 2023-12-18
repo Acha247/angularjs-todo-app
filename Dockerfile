@@ -1,6 +1,7 @@
 # Stage 1: Build the application
 FROM node:21-alpine AS build
 WORKDIR /app
+RUN git clone https://github.com/Acha247/angularjs-todo-app.git
 COPY package.json package-lock.json ./
 RUN npm install
 COPY . .
